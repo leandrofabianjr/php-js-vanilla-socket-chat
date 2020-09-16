@@ -1,0 +1,12 @@
+{
+    "name": "leandro/php-js-vanilla-socket-chat",
+    "authors": [
+        {
+            "name": "leandrofabianjr",
+            "email": "leandrofabianjr@gmail.com"
+        }
+    ],
+    "require": {
+        "cboden/ratchet": "^0.4.3"
+    }
+}
