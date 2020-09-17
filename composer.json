@@ -7,7 +7,6 @@
         }
     ],
     "require": {
-        "cboden/ratchet": "^0.4.3",
-        "fzaninotto/faker": "^1.9"
+        "cboden/ratchet": "^0.4.3"
     }
 }
