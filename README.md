@@ -4,8 +4,8 @@ Simple chat app with PHP e JS.
 
 It implements a websocket using the library [cboden/ratchet](https://github.com/ratchetphp/Ratchet).
 
-![](docs/shot01.png){:height="50%" width="50%"}
-![](docs/shot02.png){:height="50%" width="50%"}
+<img src="docs/shot01.png" width="200">
+<img src="docs/shot02.png" width="200">
 
 ## Running locally
 
