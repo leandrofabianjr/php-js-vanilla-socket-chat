@@ -1,0 +1,12 @@
+version: "3.7"
+services:
+  chat:
+    build: .
+    image: chat
+    container_name: chat
+    volumes:
+      - ./:/var/www/html/
+    ports:
+      - 80:80
+      - 8088:8088
+    # entrypoint: ["php index.php"]
