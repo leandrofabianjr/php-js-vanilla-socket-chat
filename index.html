@@ -186,6 +186,7 @@
       const serializedData = JSON.stringify(messageData);
 
       socket.send(serializedData);
+      showMessage(messageData);
 
       $message.value = '';
     }
