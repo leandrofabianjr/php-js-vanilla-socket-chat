@@ -1,0 +1,74 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Vanilla JS Chat</title>
+
+  <style>
+    * { margin: 0; padding: 0; box-sizing: border-box; outline: 0; }
+    html, body { width: 100%; height: 100%; }
+    body { display: flex; flex-direction: column; }
+    .section-chat { flex: 1; }
+    .section-message { height: 64px; }
+  </style>
+</head>
+
+<body>
+  <header>
+    <label for="input"> My username: </label>
+    <input id="username" type="text" />
+  </header>
+  <section class="section-chat">
+    <ul id="chat"></ul>
+  </section>
+  <section class="section-message">
+    <span class="message-input-container">
+    <label for="input">
+      <input id="message" type="text" placeholder="Sua mensagem" />
+      <span class="icon">⏎</label>
+    </label>
+    </span>
+  </section>
+  <script>
+    const $chat = document.getElementById('chat');
+    const $message = document.getElementById('message');
+    const username = document.getElementById('username');
+
+    const clientId = Date.now();
+
+    username.placeholder = clientId;
+
+    const socket = new WebSocket('ws://localhost:8088');
+
+    function newMessage(data) {
+      const messageBaloon = document.createElement('li');
+      messageBaloon.innerText = (data.username ? data.username : data.client_id) + ": " + data.message;
+      $chat.appendChild(messageBaloon);
+    }
+
+    socket.addEventListener('message', function (event) {
+      const messageData = JSON.parse(event.data);
+      newMessage(messageData);
+    });
+
+    $message.addEventListener('keyup', function (event) {
+      if (event.keyCode === 13) {
+        const data = {
+          client_id: clientId,
+          username: username.value,
+          message: this.value,
+        };
+        const serializedData = JSON.stringify(data);
+
+        socket.send(serializedData);
+
+        this.value = '';
+      }
+    });
+
+  </script>
+</body>
+
+</html>
