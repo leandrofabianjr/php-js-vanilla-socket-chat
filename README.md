@@ -1,1 +1,1 @@
-# php-js-vanilla-socket-chat
+# php-js-websochet-chat
