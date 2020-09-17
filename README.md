@@ -1,5 +1,12 @@
 # Chat with PHP Websocket
 
+Simple chat app with PHP e JS.
+
+It implements a websocket using the library [cboden/ratchet](https://github.com/ratchetphp/Ratchet).
+
+<img src="docs/shot01.png" style="width: 256px; margin-right: 16px">
+<img src="docs/shot02.png" style="width: 256px;">
+
 ## Running locally
 
 Cloning the repository:
@@ -12,21 +19,29 @@ cd php-js-websochet-chat
 Installing dependencies:
 
 ```bash
-# If you have docker installed:
+# If you have docker
 docker run -it -v ${PWD}:/app composer
 
 # If you have composer
 composer install
 ```
 
-Starting the container:
+Starting the application:
 
 ```bash
-docker-compose up
+# If you have docker
+docker-compose up --build
 ```
 
-Open http://localhost in your favorite web browser.
+Starting the server:
+
+```bash
+docker exec -t chat /usr/local/bin/php /var/www/html/server/server.php
+```
+
+Open http://localhost in your favorite web browser and type something.
 
 ## Credits
 
-Design inspired by a [beautiful chat concept](https://dribbble.com/shots/7941890-Messaging-app-concept) made by [Fahime Rafiee](https://dribbble.com/fahimerafiee) on [Dribbble](https://dribbble.com/).
+Design inspired by a [beautiful chat concept](https://dribbble.com/shots/7941890-Messaging-app-concept)
+made by [Fahime Rafiee](https://dribbble.com/fahimerafiee) on [Dribbble](https://dribbble.com/).
