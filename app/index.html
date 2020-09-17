@@ -4,7 +4,7 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Vanilla JS Chat</title>
+  <title>PHP & JS Chat</title>
 
   <link href="https://fonts.googleapis.com/css2?family=Ubuntu:wght@400;700&display=swap" rel="stylesheet">
 
@@ -27,6 +27,7 @@
       background: #1d1b25;
       display: flex;
       flex-direction: column;
+      padding: 8px;
     }
 
     header {
@@ -80,7 +81,6 @@
       background-color: #383152;
       padding: 16px;
       border-radius: 20px 20px 20px 0;
-      box-shadow: rgba(0, 0, 0, .1) 4px 4px 6px 6px;
       align-self: flex-start;
     }
 
@@ -110,12 +110,12 @@
     .section-typer {
       background-color: #272336;
       padding: 16px;
+      border-radius: 0 0 40px 40px;
     }
 
     .message-input-container {
       background-color: #312b46;
       border-radius: 50px;
-      box-shadow: rgba(0, 0, 0, .1) 4px 4px 6px 6px;
       display: flex;
       align-items: center;
     }
@@ -126,7 +126,7 @@
       border: 0;
       height: 64px;
       font-size: 1.2rem;
-      padding-left: 16px;
+      padding-left: 24px;
       width: calc(100% - 2.5em);
     }
 
@@ -139,13 +139,33 @@
       cursor: pointer;
       height: 64px;
     }
+
+    footer {
+      color: #fff;
+      padding: 16px 0;
+      align-items: center;
+    }
+
+    footer {
+      text-align: center;
+    }
+
+    footer a {
+      color: #9f85ff;
+      text-decoration: inherit;
+    }
+
+    footer .icon {
+      margin-left: 8px;
+      display: inline-block;
+    }
   </style>
 </head>
 
 <body>
   <header>
     <label for="input">
-      <input id="username" type="text" />
+      <input id="username" type="text" placeholder="Your username"/>
     </label>
   </header>
   <section class="section-chat">
@@ -153,10 +173,16 @@
   </section>
   <section class="section-typer">
     <form class="message-input-container" onsubmit="sendMessage(event)">
-      <input id="message" type="text" placeholder="Type something..." />
+      <input id="message" autofocus type="text" placeholder="Type something..." />
       <button type="submit">🚀</button>
     </form>
   </section>
+  <footer>
+    <p>
+      Made by <a href="https://leandrofabianjr.github.io">leandrofabianjr</a>
+      <span class="icon">💻</span>
+    </p>
+  </footer>
 
   <script>
     const myClientId = Date.now();
@@ -164,8 +190,6 @@
     const $chat = document.getElementById('chat');
     const $message = document.getElementById('message');
     const username = document.getElementById('username');
-
-    username.placeholder = myClientId;
 
     const socket = new WebSocket('ws://localhost:8088');
 
