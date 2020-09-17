@@ -3,7 +3,7 @@
 Simple chat app with PHP e JS.
 
 It implements a websocket using the PHP library [cboden/ratchet](https://github.com/ratchetphp/Ratchet)
-and [JS WebSocket API](https://developer.mozilla.org/en-US/docs/Web/API/WebSocket).
+and the [JS WebSocket API](https://developer.mozilla.org/en-US/docs/Web/API/WebSocket).
 
 <img src="docs/shots.png" width="80%" style="display: inline">
 
