@@ -1,4 +1,4 @@
-# Chat with PHP Websocket
+# Chat with PHP e JS Websocket
 
 Simple chat app with PHP e JS.
 
@@ -39,7 +39,7 @@ Starting the server:
 docker exec -t chat /usr/local/bin/php /var/www/html/server/server.php
 ```
 
-Open http://localhost in your favorite web browser and type something.
+Open http://localhost/chat in your favorite web browser and type something.
 
 ## Credits
 
