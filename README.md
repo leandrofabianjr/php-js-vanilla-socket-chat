@@ -1,4 +1,4 @@
-# Chat with PHP e JS Websocket
+# Chat with PHP and JS Websocket
 
 Simple chat app with PHP and JS.
 
